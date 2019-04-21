@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Unit Converter</string>
+    <string name="temperature">Temperature</string>
+    <string name="celsius">Celcius</string>
+    <string name="fahrenheit">Farenheit</string>
+    <string name="distance">Distance</string>
+    <string name="kilometers">Kilometers</string>
+    <string name="miles">Miles</string>
+    <string name="weight">Weight</string>
+    <string name="kilograms">Kilograms</string>
+    <string name="pounds">Pounds</string>
+    <string name="volume">Volume</string>
+    <string name="gallons">Gallons</string>
+    <string name="litres">Litres</string>
+</resources>
