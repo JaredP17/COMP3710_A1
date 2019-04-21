@@ -15,7 +15,7 @@ import android.widget.EditText;
 import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
-    DecimalFormat fmt = new DecimalFormat("#,##0.0#");
+    DecimalFormat fmt = new DecimalFormat("#,##0.0#"); // Number formatting for conversions
     private EditText celsius, fahrenheit, kilometers, miles, kilograms, pounds, litres, gallons;
 
     @Override
@@ -23,14 +23,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        celsius = (EditText) findViewById(R.id.celsiusEditText);
-        fahrenheit = (EditText) findViewById(R.id.fahrenheitEditText);
-        kilometers = (EditText) findViewById(R.id.kmEditText);
-        miles = (EditText) findViewById(R.id.mileEditText);
-        kilograms = (EditText) findViewById(R.id.kgEditText);
-        pounds = (EditText) findViewById(R.id.lbEditText);
-        litres = (EditText) findViewById(R.id.literEditText);
-        gallons = (EditText) findViewById(R.id.gallonEditText);
+        celsius = findViewById(R.id.celsiusEditText);
+        fahrenheit = findViewById(R.id.fahrenheitEditText);
+        kilometers = findViewById(R.id.kmEditText);
+        miles = findViewById(R.id.mileEditText);
+        kilograms = findViewById(R.id.kgEditText);
+        pounds = findViewById(R.id.lbEditText);
+        litres = findViewById(R.id.literEditText);
+        gallons = findViewById(R.id.gallonEditText);
 
         clearText(celsius, fahrenheit);
         celsius.addTextChangedListener(new TextWatcher() {
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     if (c.isEmpty()) {
                         fahrenheit.setText("");
                     } else {
-                        String f = toFahrenheit() + " \u2109";
+                        String f = toFahrenheit() + " \u2109"; // Adds fahrenheit symbol to conversion text
                         fahrenheit.setText(f);
                     }
                 }
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                     if (f.isEmpty()) {
                         celsius.setText("");
                     } else {
-                        String c = toCelsius() + " \u2103";
+                        String c = toCelsius() + " \u2103"; // Adds celsius symbol to conversion text
                         celsius.setText(c);
                     }
                 }
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                     if (k.isEmpty()) {
                         miles.setText("");
                     } else {
-                        String m = toMiles() + " mi";
+                        String m = toMiles() + " mi"; // Adds mi to conversion text
                         miles.setText(m);
                     }
                 }
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
                     if (m.isEmpty()) {
                         kilometers.setText("");
                     } else {
-                        String k = toKilometers() + " km";
+                        String k = toKilometers() + " km"; // Adds km to conversion text
                         kilometers.setText(k);
                     }
                 }
@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
                     if (k.isEmpty()) {
                         pounds.setText("");
                     } else {
-                        String p = toPounds() + " lbs";
+                        String p = toPounds() + " lbs"; // Adds lbs to conversion text
                         pounds.setText(p);
                     }
                 }
@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
                     if (p.isEmpty()) {
                         kilograms.setText("");
                     } else {
-                        String k = toKilograms() + " kg";
+                        String k = toKilograms() + " kg"; // Adds kg to conversion text
                         kilograms.setText(k);
                     }
                 }
@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
                     if (l.isEmpty()) {
                         gallons.setText("");
                     } else {
-                        String g = toGallons() + " gal";
+                        String g = toGallons() + " gal"; // Adds gal to conversion text
                         gallons.setText(g);
                     }
                 }
@@ -233,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
                     if (g.isEmpty()) {
                         litres.setText("");
                     } else {
-                        String l = toLitres() + " li";
+                        String l = toLitres() + " li"; // Adds li to conversion text
                         litres.setText(l);
                     }
                 }
@@ -242,7 +242,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    // Method for clearing corresponding text fields on touch
     @SuppressLint("ClickableViewAccessibility")
     private void clearText(final EditText editText, final EditText editText2) {
         editText.setOnTouchListener(new View.OnTouchListener() {
@@ -257,6 +257,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+    /************************
+     * ALL UNIT CONVERSIONS *
+     ************************/
     private String toCelsius() {
         return fmt.format((Double.parseDouble(fahrenheit.getText().toString()) - 32.0) * (5.0 / 9.0));
 
